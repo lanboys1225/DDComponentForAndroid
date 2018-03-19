@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    compile project(':componentservice')
+    compile project(':Submodules:DDComponent:componentservice')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
