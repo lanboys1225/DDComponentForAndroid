@@ -9,3 +9,8 @@ include ':app',
         ':basicres',
         ':router-annotation',
         ':router-anno-compiler'
+
+include ':Submodules:BingComm:CommLib',
+        ':Submodules:BingComm:SubModule:android-crop:lib',
+        ':Submodules:BingComm:SubModule:Matisse:matisse',
+        ':Submodules:BingComm:SubModule:LoadDataLayout:loaddatalayout'

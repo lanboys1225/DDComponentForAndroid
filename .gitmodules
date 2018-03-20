@@ -1,0 +1,3 @@
+[submodule "Submodules/BingComm"]
+	path = Submodules/BingComm
+	url = git@github.com:lanboys/BingComm.git

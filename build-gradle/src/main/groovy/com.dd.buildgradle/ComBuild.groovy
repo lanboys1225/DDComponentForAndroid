@@ -55,6 +55,7 @@ class ComBuild implements Plugin<Project> {
                 }
             }
             System.out.println("apply plugin is " + 'com.android.application')
+//            当前打包组件才会 添加依赖
             if (assembleTask.isAssemble && module.equals(compilemodule)) {
                 compileComponents(assembleTask, project)
                 project.android.registerTransform(new ComCodeTransform(project))
