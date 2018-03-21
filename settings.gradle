@@ -1,4 +1,4 @@
-include ':UserComponent'
+include ':UserComponent', ':DiscoverComponent'
 include /*':app', */':MainApp', ':MainLib', ':HomeComponent',
 //        ':sharecomponentkotlin',
         ':componentlib',

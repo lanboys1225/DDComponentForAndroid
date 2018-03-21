@@ -19,6 +19,7 @@ import com.luojilab.router.facade.annotation.RouteNode;
 import com.mjn.investment.R;
 import com.mjn.libs.base.MainLibActivity;
 import com.mjn.libs.base.MainLibFragment;
+import com.mjn.libs.comm.service.DiscoverService;
 import com.mjn.libs.comm.service.HomeService;
 import com.mjn.libs.comm.service.UserService;
 import com.mjn.libs.cons.UIRouterCons;
@@ -74,7 +75,7 @@ public class MainAppActivity extends MainLibActivity<IMainAppContract.IMainAppPr
 
     @Override
     protected void initViewAndData(Intent intent) {
-        setToolBar(mToolbar, "包公有财首页", true, 0);
+        setToolBar(mToolbar, "包公有财首页", false, 0);
     }
 
     @Override
@@ -99,7 +100,16 @@ public class MainAppActivity extends MainLibActivity<IMainAppContract.IMainAppPr
             }
         }
 
-        for (int i = 0; i < 3; i++) {
+        if (router.getService(DiscoverService.class.getSimpleName()) != null) {
+            DiscoverService service = (DiscoverService) router.getService(DiscoverService.class.getSimpleName());
+            MainLibFragment fragment = service.getDiscoverFragment();
+            if (fragment != null) {
+                fragments.add(fragment);
+                titles.add(fragment.getTitle());
+            }
+        }
+
+        for (int i = 0; i < 2; i++) {
             if (router.getService(UserService.class.getSimpleName()) != null) {
                 UserService service = (UserService) router.getService(UserService.class.getSimpleName());
                 MainLibFragment fragment = service.getUserFragment();

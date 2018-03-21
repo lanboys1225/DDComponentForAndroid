@@ -1,8 +1,8 @@
-package com.mjn.home.runalone.app;
+package com.mjn.discover.app;
 
 import android.app.Application;
 
-public class HomeApplication extends Application {
+public class DiscoverApplication extends Application {
 
     @Override
     public void onCreate() {
