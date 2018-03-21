@@ -34,6 +34,10 @@ allprojects {
     }
 }
 
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
 // 定义版本
 ext {
 //    applicationId = "com.bing.lan.sample"

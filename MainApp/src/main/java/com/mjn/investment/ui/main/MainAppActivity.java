@@ -20,6 +20,7 @@ import com.mjn.investment.R;
 import com.mjn.libs.base.MainLibActivity;
 import com.mjn.libs.base.MainLibFragment;
 import com.mjn.libs.comm.service.HomeService;
+import com.mjn.libs.comm.service.UserService;
 import com.mjn.libs.cons.UIRouterCons;
 import com.mjn.libs.view.NoScrollViewPager;
 
@@ -84,17 +85,24 @@ public class MainAppActivity extends MainLibActivity<IMainAppContract.IMainAppPr
     }
 
     private void initFragment() {
-
         Router router = Router.getInstance();
-        for (int i = 0; i < 4; i++) {
 
-            if (router.getService(HomeService.class.getSimpleName()) != null) {
-                HomeService service = (HomeService) router.getService(HomeService.class.getSimpleName());
-                MainLibFragment fragment = service.getHomeFragment();
-                //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                //ft.add(R.id.tab_content, fragment).commitAllowingStateLoss();
-                //Log.i("onCreate():", " -----------------------");
+        if (router.getService(HomeService.class.getSimpleName()) != null) {
+            HomeService service = (HomeService) router.getService(HomeService.class.getSimpleName());
+            MainLibFragment fragment = service.getHomeFragment();
+            //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            //ft.add(R.id.tab_content, fragment).commitAllowingStateLoss();
+            //Log.i("onCreate():", " -----------------------");
+            if (fragment != null) {
+                fragments.add(fragment);
+                titles.add(fragment.getTitle());
+            }
+        }
 
+        for (int i = 0; i < 3; i++) {
+            if (router.getService(UserService.class.getSimpleName()) != null) {
+                UserService service = (UserService) router.getService(UserService.class.getSimpleName());
+                MainLibFragment fragment = service.getUserFragment();
                 if (fragment != null) {
                     fragments.add(fragment);
                     titles.add(fragment.getTitle());
