@@ -2,6 +2,7 @@ package com.mjn.home;
 
 import android.support.v4.app.Fragment;
 
+import com.mjn.home.ui.home.HomeFragment;
 import com.mjn.libs.comm.service.HomeService;
 
 /**
@@ -12,6 +13,6 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     public Fragment getHomeFragment() {
-        return new HomeFragment();
+        return HomeFragment.newInstance("主页Fragment");
     }
 }

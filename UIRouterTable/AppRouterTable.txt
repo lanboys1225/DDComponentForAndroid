@@ -1,0 +1,8 @@
+auto generated, do not change !!!! 
+
+HOST : app
+
+首页
+/mainApp
+bookName:String
+

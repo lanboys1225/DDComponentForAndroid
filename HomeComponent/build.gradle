@@ -41,7 +41,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     implementation project(':MainLib')
+    annotationProcessor project(':router-anno-compiler')
+    //    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
 
+
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 }
 
 
