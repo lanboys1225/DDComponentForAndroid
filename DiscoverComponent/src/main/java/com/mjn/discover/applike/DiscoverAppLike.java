@@ -5,7 +5,6 @@ import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.mjn.discover.DiscoverServiceImpl;
 import com.mjn.libs.comm.service.DiscoverService;
-import com.mjn.libs.comm.service.HomeService;
 
 public class DiscoverAppLike implements IApplicationLike {
 
@@ -21,6 +20,6 @@ public class DiscoverAppLike implements IApplicationLike {
     @Override
     public void onStop() {
         uiRouter.unregisterUI("discover");
-        router.removeService(HomeService.class.getSimpleName());
+        router.removeService(DiscoverService.class.getSimpleName());
     }
 }

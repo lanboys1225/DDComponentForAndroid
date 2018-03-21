@@ -8,6 +8,6 @@ public class FragmentTitleCons implements IConstants {
 
     public static final String FRAGMENT_HOME_TITLE = "首页";
     public static final String FRAGMENT_DISCOVER_TITLE = "发现";
-    public static final String FRAGMENT_INVESTMENT_TITLE = "投资";
+    public static final String FRAGMENT_INVEST_TITLE = "投资";
     public static final String FRAGMENT_USER_TITLE = "账户";
 }

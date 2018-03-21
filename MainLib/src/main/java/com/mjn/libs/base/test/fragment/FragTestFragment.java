@@ -15,11 +15,13 @@ public class FragTestFragment extends MainLibFragment<IFragTestContract.IFragTes
 
     }
 
+    //Bundle args = new Bundle();
+    //    args.putString("fragment标题", title);
+    //    fragment.setArguments(args);
+
     public static FragTestFragment newInstance(String title) {
         FragTestFragment fragment = new FragTestFragment();
-        Bundle args = new Bundle();
-        args.putString("fragment标题", title);
-        fragment.setArguments(args);
+        fragment.setTitle(title);
         return fragment;
     }
 

@@ -6,6 +6,6 @@ import com.mjn.libs.base.MainLibFragment;
  * Created by 蓝兵 on 2018/3/21.
  */
 
-public interface InvestmentService extends ComponentService {
-    MainLibFragment getDiscoverFragment();
+public interface InvestService extends ComponentService {
+    MainLibFragment getInvestFragment();
 }
