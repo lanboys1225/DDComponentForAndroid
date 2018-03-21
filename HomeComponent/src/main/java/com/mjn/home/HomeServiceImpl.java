@@ -1,9 +1,9 @@
 package com.mjn.home;
 
-import android.support.v4.app.Fragment;
-
 import com.mjn.home.ui.home.HomeFragment;
+import com.mjn.libs.base.MainLibFragment;
 import com.mjn.libs.comm.service.HomeService;
+import com.mjn.libs.cons.FragmentTitleCons;
 
 /**
  * Created by 蓝兵 on 2018/3/21.
@@ -12,7 +12,7 @@ import com.mjn.libs.comm.service.HomeService;
 public class HomeServiceImpl implements HomeService {
 
     @Override
-    public Fragment getHomeFragment() {
-        return HomeFragment.newInstance("主页Fragment");
+    public MainLibFragment getHomeFragment() {
+        return HomeFragment.newInstance(FragmentTitleCons.FRAGMENT_HOME_TITLE);
     }
 }

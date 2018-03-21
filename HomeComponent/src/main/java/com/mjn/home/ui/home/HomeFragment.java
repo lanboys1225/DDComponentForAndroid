@@ -18,9 +18,7 @@ public class HomeFragment extends MainLibFragment<IHomeContract.IHomePresenter>
 
     public static HomeFragment newInstance(String title) {
         HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString("fragment标题", title);
-        fragment.setArguments(args);
+        fragment.setTitle(title);
         return fragment;
     }
 
