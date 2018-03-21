@@ -1,4 +1,4 @@
-package com.mjn.user.home;
+package com.mjn.user.ui.user;
 
 import com.bing.lan.comm.rx.OnDataChangerListener;
 import com.mjn.libs.base.MainLibFragmentModule;

@@ -1,4 +1,4 @@
-package com.mjn.user.applike;
+package com.mjn.user.app.applike;
 
 import com.luojilab.component.componentlib.applicationlike.IApplicationLike;
 import com.luojilab.component.componentlib.router.Router;
