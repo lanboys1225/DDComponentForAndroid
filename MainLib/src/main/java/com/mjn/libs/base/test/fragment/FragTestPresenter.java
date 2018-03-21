@@ -1,12 +1,12 @@
 package com.mjn.libs.base.test.fragment;
 
-import com.mjn.libs.base.JzkSellerFragmentPresenter;
+import com.mjn.libs.base.MainLibFragmentPresenter;
 
 /**
  * @author 蓝兵
  */
 public class FragTestPresenter extends
-        JzkSellerFragmentPresenter<IFragTestContract.IFragTestView, IFragTestContract.IFragTestModule>
+        MainLibFragmentPresenter<IFragTestContract.IFragTestView, IFragTestContract.IFragTestModule>
         implements IFragTestContract.IFragTestPresenter {
 
     @Override

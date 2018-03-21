@@ -1,12 +1,12 @@
 package com.mjn.home.ui.home;
 
-import com.mjn.libs.base.JzkSellerFragmentPresenter;
+import com.mjn.libs.base.MainLibFragmentPresenter;
 
 /**
  * @author 蓝兵
  */
 public class HomePresenter extends
-        JzkSellerFragmentPresenter<IHomeContract.IHomeView, IHomeContract.IHomeModule>
+        MainLibFragmentPresenter<IHomeContract.IHomeView, IHomeContract.IHomeModule>
         implements IHomeContract.IHomePresenter {
 
     @Override

@@ -1,12 +1,12 @@
 package com.mjn.discover.ui.discover;
 
-import com.mjn.libs.base.JzkSellerFragmentPresenter;
+import com.mjn.libs.base.MainLibFragmentPresenter;
 
 /**
  * @author 蓝兵
  */
 public class DiscoverPresenter extends
-        JzkSellerFragmentPresenter<IDiscoverContract.IDiscoverView, IDiscoverContract.IDiscoverModule>
+        MainLibFragmentPresenter<IDiscoverContract.IDiscoverView, IDiscoverContract.IDiscoverModule>
         implements IDiscoverContract.IDiscoverPresenter {
 
     @Override

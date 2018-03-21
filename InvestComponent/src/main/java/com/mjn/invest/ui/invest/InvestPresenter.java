@@ -1,12 +1,12 @@
 package com.mjn.invest.ui.invest;
 
-import com.mjn.libs.base.JzkSellerFragmentPresenter;
+import com.mjn.libs.base.MainLibFragmentPresenter;
 
 /**
  * @author 蓝兵
  */
 public class InvestPresenter extends
-        JzkSellerFragmentPresenter<IInvestContract.IInvestView, IInvestContract.IInvestModule>
+        MainLibFragmentPresenter<IInvestContract.IInvestView, IInvestContract.IInvestModule>
         implements IInvestContract.IInvestPresenter {
 
     @Override

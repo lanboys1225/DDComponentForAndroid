@@ -1,12 +1,12 @@
 package com.mjn.user.ui.user;
 
-import com.mjn.libs.base.JzkSellerFragmentPresenter;
+import com.mjn.libs.base.MainLibFragmentPresenter;
 
 /**
  * @author 蓝兵
  */
 public class UserPresenter extends
-        JzkSellerFragmentPresenter<IUserContract.IUserView, IUserContract.IUserModule>
+        MainLibFragmentPresenter<IUserContract.IUserView, IUserContract.IUserModule>
         implements IUserContract.IUserPresenter {
 
     @Override

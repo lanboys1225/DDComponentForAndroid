@@ -5,7 +5,7 @@ import com.bing.lan.comm.mvp.fragment.BaseFragmentPresenter;
 /**
  * @author 蓝兵
  */
-public abstract class JzkSellerFragmentPresenter<
+public abstract class MainLibFragmentPresenter<
         T extends IMainLibFragmentContract.IMainLibFragmentView,
         V extends IMainLibFragmentContract.IJzkSellerFragmentModule>
         extends BaseFragmentPresenter<T, V>
