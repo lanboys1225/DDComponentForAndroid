@@ -1,6 +1,5 @@
 package com.mjn.libs.comm.ui.h5.activity;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.view.KeyEvent;
 
@@ -43,7 +42,10 @@ public class WebViewActivity extends MainLibActivity<IWebViewContract.IWebViewPr
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Html5Fragment html5Fragment = findViewById(R.id.webView_fragment);
+
+        Html5Fragment html5Fragment = (Html5Fragment) getSupportFragmentManager()
+                .findFragmentById(R.id.webView_fragment);
+
         if (html5Fragment != null) {
             if (html5Fragment.onKeyDown(keyCode, event)) {
                 return true;

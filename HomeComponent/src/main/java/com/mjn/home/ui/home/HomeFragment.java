@@ -40,10 +40,6 @@ public class HomeFragment extends MainLibFragment<IHomeContract.IHomePresenter>
         return presenter;
     }
 
-    // @Override
-    // protected void startInject(FragmentComponent fragmentComponent) {
-    //     //        fragmentComponent.inject(this);
-    // }
 
     @Override
     protected void initViewAndData(Intent intent, Bundle arguments) {
