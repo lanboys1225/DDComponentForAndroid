@@ -1,11 +1,11 @@
 package com.mjn.discover.app;
 
-import android.app.Application;
+import com.bing.lan.comm.app.BaseApplication;
 
-public class DiscoverApplication extends Application {
+public class DiscoverApplication extends BaseApplication {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected boolean getLogDebug() {
+        return true;
     }
 }

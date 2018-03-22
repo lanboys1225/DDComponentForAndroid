@@ -1,11 +1,11 @@
 package com.mjn.invest.app;
 
-import android.app.Application;
+import com.bing.lan.comm.app.BaseApplication;
 
-public class InvestApplication extends Application {
+public class InvestApplication extends BaseApplication {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected boolean getLogDebug() {
+        return true;
     }
 }

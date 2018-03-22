@@ -24,7 +24,7 @@ public class InvestFragment extends MainLibFragment<IInvestContract.IInvestPrese
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_invest;
+        return R.layout.fragment_html5;
     }
 
     @Override

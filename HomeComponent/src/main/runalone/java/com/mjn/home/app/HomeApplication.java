@@ -1,11 +1,11 @@
 package com.mjn.home.app;
 
-import android.app.Application;
+import com.bing.lan.comm.app.BaseApplication;
 
-public class HomeApplication extends Application {
+public class HomeApplication extends BaseApplication {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected boolean getLogDebug() {
+        return true;
     }
 }
