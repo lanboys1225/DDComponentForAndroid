@@ -1,7 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
     ext.kotlin_version = '1.2.21'
+
     repositories {
         jcenter()
         maven { url "https://jitpack.io" }
@@ -25,14 +27,24 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://jitpack.io" }
+        maven {
+            url "https://jitpack.io"
+        }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
         }
-
-        maven { url 'https://dl.bintray.com/lanboys/MavenRepo' }
+        maven {
+            url 'https://dl.bintray.com/lanboys/MavenRepo'
+        }
     }
+
+//    task deleteProjectBuildDir {
+//        doLast {
+//            delete project.buildDir
+//            println "+++++delete project.buildDir+++++"
+//        }
+//    }
 }
 
 task clean(type: Delete) {
