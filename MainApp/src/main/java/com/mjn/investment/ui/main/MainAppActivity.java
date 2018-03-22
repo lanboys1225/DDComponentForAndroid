@@ -178,4 +178,16 @@ public class MainAppActivity extends MainLibActivity<IMainAppContract.IMainAppPr
             showToast("再按一次退出程序");
         }
     }
+
+    /* 启动activity时 进行权限请求 的开关 */
+    @Override
+    protected boolean isCheckPermissions() {
+        return true;
+    }
+
+    /* 返回权限数组资源id */
+    @Override
+    protected int getPermissionArrId() {
+        return R.array.basic_runtime_permissions;
+    }
 }

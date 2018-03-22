@@ -2,6 +2,8 @@ package com.mjn.libs.comm.ui.login;
 
 import com.mjn.libs.base.MainLibActivityPresenter;
 
+import static com.mjn.libs.cons.RequestActionCons.ACTION_LOGIN;
+
 /**
  * @author 蓝兵
  */
@@ -14,11 +16,20 @@ public class LoginPresenter
     }
 
     @Override
+    public void login(String phone, String password) {
+        showProgressDialog("正在登录..");
+        requestData(ACTION_LOGIN, phone, password);
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public void onSuccess(int action, Object data) {
         super.onSuccess(action, data);
         switch (action) {
         }
+        //showError("登录成功");
+
+        log.i("onSuccess(): " + data.toString());
     }
 
     @Override

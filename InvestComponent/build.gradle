@@ -22,6 +22,8 @@ android {
             }
         }
 
+        multiDexEnabled true
+
     }
 
     buildTypes {

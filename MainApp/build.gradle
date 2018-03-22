@@ -23,6 +23,11 @@ android {
             }
         }
 
+//        1. 导包     compile "com.android.support:multidex:$rootProject.multidexVersion"
+//        2. application 做设置
+//        3. 此处设置
+        multiDexEnabled true
+
     }
 
     buildTypes {
@@ -31,6 +36,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    dexOptions {
+//        preDexLibraries = false
+//    }
 
 }
 

@@ -15,6 +15,7 @@ public interface ILoginContract {
     interface ILoginPresenter
             extends IMainLibActivityContract.IJzkSellerActivityPresenter<ILoginView, ILoginModule> {
 
+        void login(String phone, String password);
     }
 
     interface ILoginModule

@@ -17,7 +17,7 @@ include ':MainApp',
 //        ':router-annotation',
 //        ':router-anno-compiler'
 
-//include ':Submodules:BingComm:CommLib',
-//        ':Submodules:BingComm:SubModule:android-crop:lib',
-//        ':Submodules:BingComm:SubModule:Matisse:matisse',
-//        ':Submodules:BingComm:SubModule:LoadDataLayout:loaddatalayout'
+include ':Submodules:BingComm:CommLib',
+        ':Submodules:BingComm:SubModule:android-crop:lib',
+        ':Submodules:BingComm:SubModule:Matisse:matisse',
+        ':Submodules:BingComm:SubModule:LoadDataLayout:loaddatalayout'

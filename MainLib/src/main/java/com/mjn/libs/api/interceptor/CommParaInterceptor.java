@@ -16,6 +16,9 @@ import okhttp3.Response;
  */
 public class CommParaInterceptor implements Interceptor {
 
+    private static final String USER_AGENT_HEADER_NAME = "User-Agent";
+    private static final String userAgentHeaderValue = "baogongyoucai";
+
     @Override
     public Response intercept(Chain chain) throws IOException {
 
@@ -24,6 +27,8 @@ public class CommParaInterceptor implements Interceptor {
 
         Request request = originalRequest.newBuilder()
                 .url(modifiedUrl)
+                .removeHeader(USER_AGENT_HEADER_NAME)
+                .addHeader(USER_AGENT_HEADER_NAME, userAgentHeaderValue)
                 .build();
 
         return chain.proceed(request);
@@ -36,7 +41,6 @@ public class CommParaInterceptor implements Interceptor {
         // 参数
         //.addEncodedQueryParameter("v", "2")
         builder = builder.addQueryParameter("version", AppUtil.getVersionName() /*"1.3.4"*/);
-
 
         HttpUrl httpUrl = builder.build();
         return httpUrl;

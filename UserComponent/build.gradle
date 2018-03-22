@@ -20,6 +20,8 @@ android {
                 arguments = [host: "user"]
             }
         }
+
+        multiDexEnabled true
     }
 
     buildTypes {

@@ -15,6 +15,7 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+
     }
 
     buildTypes {
@@ -46,8 +47,13 @@ dependencies {
 //    androidTestImplementation 'com.android.support.test:runner:1.0.1'
 //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+<<<<<<< HEAD
     implementation 'com.kevin:pulltorefresh:1.0.8'
     api 'com.bing.lan:comm:0.0.1'
+=======
+//    api 'com.bing.lan:comm:0.0.1'
+    api project(':Submodules:BingComm:CommLib')
+>>>>>>> 增加登录接口
     api 'com.luojilab.ddcomponent:componentlib:1.0.0'
 //    api project(':componentlib')
 

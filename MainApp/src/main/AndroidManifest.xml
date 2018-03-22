@@ -2,13 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.mjn.investment">
 
-    <!-- 联网权限 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- 检查网络状态的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!-- 检查wifi状态 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-
 
 
     <application
