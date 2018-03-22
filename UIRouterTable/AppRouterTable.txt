@@ -2,7 +2,7 @@ auto generated, do not change !!!!
 
 HOST : app
 
-é¦–é¡µ
+Ê×Ò³
 /mainApp
 bookName:String
 

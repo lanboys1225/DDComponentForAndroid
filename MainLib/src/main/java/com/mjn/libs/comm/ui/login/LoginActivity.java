@@ -16,9 +16,9 @@ import com.mjn.libs.base.MainLibActivity;
 public class LoginActivity extends MainLibActivity<ILoginContract.ILoginPresenter>
         implements ILoginContract.ILoginView {
 
-    //@BindView(R.id.toolbar)
-    //@BindView(R2.id.toolbar)
-    MyToolbar mToolbar;
+    ////@BindView(R.id.toolbar)
+    ////@BindView(R2.id.toolbar)
+    //MyToolbar mToolbar;
     private android.widget.LinearLayout mLoginContainer;
     private android.widget.ImageView mImageView3;
     private android.widget.EditText mLoginAccountEt;
@@ -30,6 +30,7 @@ public class LoginActivity extends MainLibActivity<ILoginContract.ILoginPresente
     private android.widget.TextView mLoginLoginBtn;
     private android.widget.TextView mLoginRegistBtn;
     private android.widget.TextView mLoginFindPwdBtn;
+    private MyToolbar mToolbar;
 
     @Override
     protected int getLayoutResId() {
@@ -67,5 +68,6 @@ public class LoginActivity extends MainLibActivity<ILoginContract.ILoginPresente
         mLoginLoginBtn = (TextView) findViewById(R.id.login_loginBtn);
         mLoginRegistBtn = (TextView) findViewById(R.id.login_registBtn);
         mLoginFindPwdBtn = (TextView) findViewById(R.id.login_findPwdBtn);
+        mToolbar = (MyToolbar) findViewById(R.id.toolbar);
     }
 }
