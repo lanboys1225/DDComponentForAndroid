@@ -24,7 +24,7 @@ public abstract class MainLibActivityModule extends BaseActivityModule
     public void loadData(int action, OnDataChangerListener listener, Object... parameter) {
     }
 
-    public Map<String, String> handlerRequest(Map<String, String> params) {
+    public Map<String, String> handlerRequestParams(Map<String, String> params) {
         Map<String, String> signParams = new HashMap<>();
         signParams.putAll(params);
         try {
@@ -40,7 +40,7 @@ public abstract class MainLibActivityModule extends BaseActivityModule
             return getSignParams(signParams, timestamp);
         } catch (Exception e) {
 
-            log.e("handlerRequest(): 加密错误 " + e );
+            log.e("handlerRequestParams(): 加密错误 " + e );
         }
         return new HashMap<>();
     }

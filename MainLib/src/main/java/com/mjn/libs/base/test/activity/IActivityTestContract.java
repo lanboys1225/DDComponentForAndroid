@@ -8,12 +8,12 @@ import com.mjn.libs.base.IMainLibActivityContract;
 public interface IActivityTestContract {
 
     interface IActivityTestView
-            extends IMainLibActivityContract.IJzkSellerActivityView<IActivityTestPresenter> {
+            extends IMainLibActivityContract.IMainLibActivityView<IActivityTestPresenter> {
 
     }
 
     interface IActivityTestPresenter
-            extends IMainLibActivityContract.IJzkSellerActivityPresenter<IActivityTestView, IActivityTestModule> {
+            extends IMainLibActivityContract.IMainLibActivityPresenter<IActivityTestView, IActivityTestModule> {
 
     }
 

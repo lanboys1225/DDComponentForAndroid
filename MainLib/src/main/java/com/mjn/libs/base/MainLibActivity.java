@@ -6,9 +6,9 @@ import com.bing.lan.comm.mvp.activity.BaseActivity;
  * @author 蓝兵
  */
 public abstract class MainLibActivity
-        <T extends IMainLibActivityContract.IJzkSellerActivityPresenter>
+        <T extends IMainLibActivityContract.IMainLibActivityPresenter>
         extends BaseActivity<T>
-        implements IMainLibActivityContract.IJzkSellerActivityView<T> {
+        implements IMainLibActivityContract.IMainLibActivityView<T> {
 
 
 }

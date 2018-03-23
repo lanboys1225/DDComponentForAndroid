@@ -27,8 +27,8 @@ public class CommParaInterceptor implements Interceptor {
 
         Request request = originalRequest.newBuilder()
                 .url(modifiedUrl)
-                .removeHeader(USER_AGENT_HEADER_NAME)
-                .addHeader(USER_AGENT_HEADER_NAME, userAgentHeaderValue)
+                //.removeHeader(USER_AGENT_HEADER_NAME)
+                //.addHeader(USER_AGENT_HEADER_NAME, userAgentHeaderValue)
                 .build();
 
         return chain.proceed(request);

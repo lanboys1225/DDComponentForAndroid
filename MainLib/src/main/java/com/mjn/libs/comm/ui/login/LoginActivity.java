@@ -10,13 +10,15 @@ import android.widget.TextView;
 
 import com.bing.lan.comm.view.MyToolbar;
 import com.mjn.libs.R;
-import com.mjn.libs.base.MainLibActivity;
+import com.mjn.libs.base.vcode.GetVcodeActivity;
+import com.mjn.libs.comm.ui.register.RegisterActivity;
 import com.mjn.libs.utils.AppUtil1;
+import com.mjn.libs.utils.Tools;
 
 /**
  * @author 蓝兵
  */
-public class LoginActivity extends MainLibActivity<ILoginContract.ILoginPresenter>
+public class LoginActivity extends GetVcodeActivity<ILoginContract.ILoginPresenter>
         implements ILoginContract.ILoginView, View.OnClickListener {
 
     ////@BindView(R.id.toolbar)
@@ -64,6 +66,13 @@ public class LoginActivity extends MainLibActivity<ILoginContract.ILoginPresente
 
         mLoginLoginBtn.setOnClickListener(this);
 
+        mLoginRegistBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(RegisterActivity.class,false,true);
+            }
+        });
+
         mLoginAccountEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -106,20 +115,34 @@ public class LoginActivity extends MainLibActivity<ILoginContract.ILoginPresente
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.login_loginBtn) {
-            if (TextUtils.isEmpty(mLoginAccountEt.getText().toString())) {
-                showError("请填写账号");
-            } else if (TextUtils.isEmpty(mLoginPasswordEt.getText().toString())) {
-                showError("请填写密码");
-            } else if (!AppUtil1.checkPwd(mLoginPasswordEt.getText().toString())) {
-                showError("请输入6-12位字母数字组合密码");
-            } else {
-                mPresenter.login(
-                        mLoginAccountEt.getText().toString(),
-                        mLoginPasswordEt.getText().toString()
-                );
-            }
+            checkLogin();
         } else if (id == R.id.login_registBtn) {
 
         }
+    }
+
+    private void checkLogin() {
+        if (TextUtils.isEmpty(mLoginAccountEt.getText().toString())) {
+            showError("请填写账号");
+            return;
+        }
+
+        if (TextUtils.isEmpty(mLoginPasswordEt.getText().toString())) {
+            showError("请填写密码");
+            return;
+        }
+        if (!AppUtil1.checkPwd(mLoginPasswordEt.getText().toString())) {
+            showError("请输入6-12位字母数字组合密码");
+            return;
+        }
+        mPresenter.login(
+                mLoginAccountEt.getText().toString(),
+                Tools.getMd5Pwd(mLoginPasswordEt.getText().toString())
+        );
+    }
+
+    @Override
+    protected TextView getVcodeTimeTextView() {
+        return null;
     }
 }

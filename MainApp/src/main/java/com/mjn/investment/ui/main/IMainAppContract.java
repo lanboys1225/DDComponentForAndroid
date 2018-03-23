@@ -8,12 +8,12 @@ import com.mjn.libs.base.IMainLibActivityContract;
 public interface IMainAppContract {
 
     interface IMainAppView
-            extends IMainLibActivityContract.IJzkSellerActivityView<IMainAppPresenter> {
+            extends IMainLibActivityContract.IMainLibActivityView<IMainAppPresenter> {
 
     }
 
     interface IMainAppPresenter
-            extends IMainLibActivityContract.IJzkSellerActivityPresenter<IMainAppView, IMainAppModule> {
+            extends IMainLibActivityContract.IMainLibActivityPresenter<IMainAppView, IMainAppModule> {
 
     }
 

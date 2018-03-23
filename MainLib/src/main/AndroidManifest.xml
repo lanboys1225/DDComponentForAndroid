@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.mjn.libs">
 
-<<<<<<< HEAD
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-=======
     <!-- 震动权限 -->
     <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> -->
@@ -45,9 +39,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
->>>>>>> 增加登录接口
 
     <application>
+
+        <service
+            android:name=".authCode.ReadSmsService"
+            android:exported="true" />
+
         <activity
             android:name=".comm.ui.login.LoginActivity"
             android:label="@string/title_activity_login"
@@ -56,6 +54,11 @@
         <activity
             android:name=".comm.ui.h5.activity.WebViewActivity"
             android:label="@string/title_activity_web_view"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".comm.ui.register.RegisterActivity"
+            android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

@@ -125,15 +125,6 @@ public class Tools {
         return toMd5(pwd.getBytes());
     }
 
-
-
-
-
-
-
-
-
-
     /**
      * 设置根页面
      *
@@ -154,7 +145,7 @@ public class Tools {
         });
     }
 
-   /**
+    /**
      * 获取时间戳变体
      *
      * @param nowTimestamp
@@ -479,7 +470,6 @@ public class Tools {
         return sp * scale;
     }
 
-
     /**
      * 显示带2个button的对话框
      *
@@ -640,7 +630,7 @@ public class Tools {
     }
 
     public static String getIMEI() {
-       return com.bing.lan.comm.app.AppUtil.getPhoneIMEI();
+        return com.bing.lan.comm.app.AppUtil.getPhoneIMEI();
     }
 
     public static String md5Encrypt(String string) {
@@ -961,7 +951,7 @@ public class Tools {
             // 添加签名参数
             //            params.put("file", "img.jpg");
             long timestamp = (System.currentTimeMillis() - AppConfig.updateTimestamp) / 1000;
-            Map<String, String> signParams =  getSignParams(params, timestamp);
+            Map<String, String> signParams = getSignParams(params, timestamp);
             Tools.Log("===sign:===" + signParams.get(AppConfig.KEY_SIGN));
             if (imgData != null) {
                 /**
@@ -1345,7 +1335,6 @@ public class Tools {
         formater.setRoundingMode(RoundingMode.DOWN);
         return decimalFormat.format(Double.parseDouble(formater.format(number)));
     }
-
 
     /**
      * 获取资源uri

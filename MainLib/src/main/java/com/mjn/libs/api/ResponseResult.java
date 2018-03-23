@@ -6,8 +6,10 @@ import java.io.Serializable;
  * Created by 蓝兵 on 2018/3/22.
  */
 
-
 public class ResponseResult<T> implements Serializable {
+
+    public static final String REQUEST_CODE_SUCCESS = "0";
+
     private static final long serialVersionUID = 1L;
     private ResponseListDataResult<T> data;
     private String code;

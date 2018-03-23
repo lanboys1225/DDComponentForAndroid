@@ -1,6 +1,6 @@
 package com.mjn.libs.comm.ui.login;
 
-import com.mjn.libs.base.IMainLibActivityContract;
+import com.mjn.libs.base.vcode.IGetVcodeContract;
 
 /**
  * @author 蓝兵
@@ -8,18 +8,18 @@ import com.mjn.libs.base.IMainLibActivityContract;
 public interface ILoginContract {
 
     interface ILoginView
-            extends IMainLibActivityContract.IJzkSellerActivityView<ILoginPresenter> {
+            extends IGetVcodeContract.IGetVcodeView<ILoginPresenter> {
 
     }
 
     interface ILoginPresenter
-            extends IMainLibActivityContract.IJzkSellerActivityPresenter<ILoginView, ILoginModule> {
+            extends IGetVcodeContract.IGetVcodePresenter<ILoginView, ILoginModule> {
 
         void login(String phone, String password);
     }
 
     interface ILoginModule
-            extends IMainLibActivityContract.IMainLibActivityModule {
+            extends IGetVcodeContract.IGetVcodeModule {
 
     }
 }

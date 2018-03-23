@@ -8,12 +8,12 @@ import com.mjn.libs.base.IMainLibActivityContract;
 public interface IWebViewContract {
 
     interface IWebViewView
-            extends IMainLibActivityContract.IJzkSellerActivityView<IWebViewPresenter> {
+            extends IMainLibActivityContract.IMainLibActivityView<IWebViewPresenter> {
 
     }
 
     interface IWebViewPresenter
-            extends IMainLibActivityContract.IJzkSellerActivityPresenter<IWebViewView, IWebViewModule> {
+            extends IMainLibActivityContract.IMainLibActivityPresenter<IWebViewView, IWebViewModule> {
 
     }
 

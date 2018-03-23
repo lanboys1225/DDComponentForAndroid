@@ -1,6 +1,6 @@
 package com.mjn.libs.comm.ui.login;
 
-import com.mjn.libs.base.MainLibActivityPresenter;
+import com.mjn.libs.base.vcode.GetVcodePresenter;
 
 import static com.mjn.libs.cons.RequestActionCons.ACTION_LOGIN;
 
@@ -8,7 +8,7 @@ import static com.mjn.libs.cons.RequestActionCons.ACTION_LOGIN;
  * @author 蓝兵
  */
 public class LoginPresenter
-        extends MainLibActivityPresenter<ILoginContract.ILoginView, ILoginContract.ILoginModule>
+        extends GetVcodePresenter<ILoginContract.ILoginView, ILoginContract.ILoginModule>
         implements ILoginContract.ILoginPresenter {
 
     @Override

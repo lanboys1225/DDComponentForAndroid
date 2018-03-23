@@ -108,5 +108,6 @@
 
     <string name="latest_activity">最新活动</string>
     <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
 
 </resources>
