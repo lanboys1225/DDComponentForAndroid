@@ -1,6 +1,8 @@
 package com.mjn.home.ui.home;
 
+import com.mjn.libs.api.ResponseListDataResult;
 import com.mjn.libs.base.MainLibFragmentPresenter;
+import com.mjn.libs.comm.bean.Home;
 
 import static com.mjn.libs.cons.RequestActionCons.ACTION_UPDATE_HOME;
 
@@ -27,8 +29,12 @@ public class HomePresenter extends
     public void onSuccess(int action, Object data) {
         super.onSuccess(action, data);
         switch (action) {
+            case ACTION_UPDATE_HOME:
+                ResponseListDataResult<Home> listDataResult = (ResponseListDataResult<Home>) data;
+                Home home = listDataResult.getList().get(0);
+                mView.onUpdateSuccess(home);
+                break;
         }
-        log.i("onSuccess(): " + data.toString());
     }
 
     @Override

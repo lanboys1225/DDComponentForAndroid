@@ -74,12 +74,6 @@ public class Html5Fragment extends MainLibFragment<IHtml5Contract.IHtml5Presente
         mLayout = (FrameLayout) mContentView.findViewById(R.id.web_layout);
         mSeekBar = (SeekBar) mContentView.findViewById(R.id.web_sbr);
 
-        if (bundle != null) {
-            mUrl = bundle.getString("url");
-        } else {
-            mUrl = "https://wing-li.github.io/";
-        }
-
         // 创建 WebView
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
@@ -93,27 +87,6 @@ public class Html5Fragment extends MainLibFragment<IHtml5Contract.IHtml5Presente
 
         mWebView.addJavascriptInterface(new WebViewJavascriptBridge(handler, this), "WebViewJavascriptBridge");
 
-        if (bundle != null) {
-            String url = bundle.getString("url", "");
-            String data = bundle.getString("data", "");
-            title = bundle.getString("title", "");
-            log.i("===== url ======: " + url);
-            log.i("===== data ======: " + data);
-            log.i("===== title ======: " + title);
-            if (TextUtils.isEmpty(title)) {
-                title = "加载中...";
-            }
-            if (!TextUtils.isEmpty(url)) {
-                if (url.toLowerCase().startsWith("mcyd")) {
-                    new WebBackNative().parseUrl(Uri.parse(url));
-                } else {
-                    synCookies(url);
-                    mWebView.loadUrl(url);
-                }
-            } else if (!TextUtils.isEmpty(data)) {
-                mWebView.loadDataWithBaseURL(null, data, "text/html", "UTF-8", null);
-            }
-        }
         //LoadingDialog.showLoading(getActivity());
 
         //  js代码调用
@@ -135,6 +108,30 @@ public class Html5Fragment extends MainLibFragment<IHtml5Contract.IHtml5Presente
         //        Log.d("MainActivity", "回调  onReceiveValue value=" + value);
         //    }
         //});
+    }
+
+    public void setWebViewParams(Bundle bundle) {
+        if (bundle != null) {
+            String url = bundle.getString("url", "");
+            String data = bundle.getString("data", "");
+            title = bundle.getString("title", "");
+            log.i("===== url ======: " + url);
+            log.i("===== data ======: " + data);
+            log.i("===== title ======: " + title);
+            if (TextUtils.isEmpty(title)) {
+                title = "加载中...";
+            }
+            if (!TextUtils.isEmpty(url)) {
+                if (url.toLowerCase().startsWith("mcyd")) {
+                    new WebBackNative().parseUrl(Uri.parse(url));
+                } else {
+                    synCookies(url);
+                    mWebView.loadUrl(url);
+                }
+            } else if (!TextUtils.isEmpty(data)) {
+                mWebView.loadDataWithBaseURL(null, data, "text/html", "UTF-8", null);
+            }
+        }
     }
 
     /**

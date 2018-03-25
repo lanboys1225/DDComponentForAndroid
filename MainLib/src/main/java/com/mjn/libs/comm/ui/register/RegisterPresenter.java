@@ -1,6 +1,6 @@
 package com.mjn.libs.comm.ui.register;
 
-import com.mjn.libs.api.ResponseResult;
+import com.mjn.libs.api.ResponseListDataResult;
 import com.mjn.libs.base.vcode.GetVcodePresenter;
 import com.mjn.libs.comm.bean.UserBean;
 
@@ -33,13 +33,8 @@ public class RegisterPresenter
 
         switch (action) {
             case ACTION_REGISTER:
-                ResponseResult<UserBean> httpResult = (ResponseResult<UserBean>) data;
-                String errorCode = httpResult.getCode();
-                if (ResponseResult.REQUEST_CODE_SUCCESS.equals(errorCode)) {
-                    mView.registerSuccess(httpResult.getData().getList().get(0));
-                } else {
-                    showError(httpResult.getMessage());
-                }
+                ResponseListDataResult<UserBean> listDataResult = (ResponseListDataResult<UserBean>) data;
+                mView.registerSuccess(listDataResult.getList().get(0));
                 break;
         }
     }

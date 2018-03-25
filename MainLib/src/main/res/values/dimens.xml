@@ -1,6 +1,18 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
+    <!-- recycleView 分割线 -->
+    <dimen name="dimen_recycleView_divider">10dp</dimen>
+    <dimen name="dimen_recycleView_divider_left_margin">10dp</dimen>
+    <dimen name="dimen_recycleView_divider_right_margin">10dp</dimen>
+
+    <dimen name="dimen_recycleView_divider_10dp">10dp</dimen>
+    <dimen name="dimen_recycleView_divider_left_margin_10dp">10dp</dimen>
+    <dimen name="dimen_recycleView_divider_right_margin_10dp">10dp</dimen>
+
+
+
+
     <!-- 下拉刷新组件 -->
     <dimen name="indicator_right_padding">10dp</dimen>
     <dimen name="indicator_corner_radius">12dp</dimen>

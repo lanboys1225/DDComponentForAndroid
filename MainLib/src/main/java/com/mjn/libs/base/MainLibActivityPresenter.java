@@ -14,7 +14,5 @@ public abstract class MainLibActivityPresenter<
     @Override
     @SuppressWarnings("unchecked")
     public void onSuccess(int action, Object data) {
-        switch (action) {
-        }
     }
 }

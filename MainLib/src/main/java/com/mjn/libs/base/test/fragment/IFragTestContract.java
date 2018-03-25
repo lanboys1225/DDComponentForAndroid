@@ -16,7 +16,7 @@ public interface IFragTestContract {
 
     }
 
-    interface IFragTestModule extends IMainLibFragmentContract.IJzkSellerFragmentModule {
+    interface IFragTestModule extends IMainLibFragmentContract.IMainLibFragmentModule {
 
     }
 }

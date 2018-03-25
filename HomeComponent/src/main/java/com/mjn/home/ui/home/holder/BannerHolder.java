@@ -8,8 +8,9 @@ import android.view.View;
 import com.bing.lan.comm.adapter.BaseViewHolder;
 import com.mjn.home.R;
 import com.mjn.home.ui.home.adapter.BannerAdapter;
-import com.mjn.libs.comm.bean.Adv;
+import com.mjn.home.ui.home.adapter.HomeRecyclerAdapter;
 import com.mjn.home.ui.home.bean.BannerBean;
+import com.mjn.libs.comm.bean.Adv;
 import com.mjn.libs.utils.AppSpDataUtil;
 import com.mjn.libs.utils.SPUtil;
 import com.mjn.libs.view.banner.BannerBaseAdapter;
@@ -21,22 +22,27 @@ import java.util.List;
  * Created by 蓝兵 on 2018/3/24.
  */
 
-public class BannerHolder extends BaseViewHolder<BannerBean> implements BannerBaseAdapter.OnPageTouchListener<Adv> {
+public class BannerHolder extends BaseViewHolder<Object> implements BannerBaseAdapter.OnPageTouchListener<Adv> {
 
     private final BannerView bannerView;
     private List<Adv> mBannerList;
+    HomeRecyclerAdapter.OnHomeClickCallBack mOnHomeClickCallBack;
 
-    public BannerHolder(View itemView) {
+    public BannerHolder(View itemView, HomeRecyclerAdapter.OnHomeClickCallBack onHomeClickCallBack) {
         super(itemView);
+        mOnHomeClickCallBack = onHomeClickCallBack;
         bannerView = itemView.findViewById(R.id.bannerView);
     }
 
     @Override
-    public void fillData(BannerBean data, int position) {
+    public void fillData(Object data1, int position) {
+        BannerBean data = (BannerBean) data1;
         mBannerList = data.getBannerList();
         BannerAdapter mAdapter = new BannerAdapter(com.bing.lan.comm.app.AppUtil.getAppContext());
-        bannerView.setAdapter(mAdapter);
         mAdapter.setOnPageTouchListener(this);
+        bannerView.setAdapter(mAdapter);
+        mAdapter.setData(mBannerList);
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -44,51 +50,63 @@ public class BannerHolder extends BaseViewHolder<BannerBean> implements BannerBa
         // 页面点击
         if (mBannerList.isEmpty())
             return;
+        String destUrl = mBannerList.get(position).getDestUrl();
+        Integer userId = AppSpDataUtil.getInstance().getUserBean().getUserId();
+
         if (mBannerList.get(position).getNeedLogin() == 0) {
             if (!mBannerList.isEmpty() && position < mBannerList.size() &&
-                    !TextUtils.isEmpty(mBannerList.get(position).getDestUrl())) {
+                    !TextUtils.isEmpty(destUrl)) {
                 Bundle bundle = new Bundle();
 
                 // 判断是否登录，登录传token,userid,isoginq=1.未登录只传递isLogin
                 if (AppSpDataUtil.getInstance().isLogined()) {
                     // 拼接参数用？还是&的区分
-                    if (mBannerList.get(position).getDestUrl().contains("?")) {
-                        bundle.putString("url", mBannerList.get(position).getDestUrl() + "&token=" + SPUtil.getInstance().getString("token") + "&userId=" + AppSpDataUtil.getInstance().getUserBean().getUserId() + "&isLogin=1");
+                    if (destUrl.contains("?")) {
+                        bundle.putString("url", destUrl + "&token=" + SPUtil.getInstance().getString("token") + "&userId=" + userId + "&isLogin=1");
                     } else {
-                        bundle.putString("url", mBannerList.get(position).getDestUrl() + "?token=" + SPUtil.getInstance().getString("token") + "&userId=" + AppSpDataUtil.getInstance().getUserBean().getUserId() + "&isLogin=1");
+                        bundle.putString("url", destUrl + "?token=" + SPUtil.getInstance().getString("token") + "&userId=" + userId + "&isLogin=1");
                     }
                 } else {
-                    if (mBannerList.get(position).getDestUrl().contains("?")) {
-                        bundle.putString("url", mBannerList.get(position).getDestUrl() + "&isLogin=0");
+                    if (destUrl.contains("?")) {
+                        bundle.putString("url", destUrl + "&isLogin=0");
                     } else {
-                        bundle.putString("url", mBannerList.get(position).getDestUrl() + "?isLogin=0");
+                        bundle.putString("url", destUrl + "?isLogin=0");
                     }
                 }
 
                 bundle.putString("title", mBannerList.get(position).getAdvTxt());
                 //Tools.pushScreen(HybridOfWebview.class, bundle);
+                if (mOnHomeClickCallBack != null) {
+                    mOnHomeClickCallBack.onBannerClick(true, bundle);
+                }
             }
         } else {
             // 未登录状态下不可以进入H5
             if (!AppSpDataUtil.getInstance().isLogined()) {
                 //Tools.pushScreen(Login.class, null);
+                if (mOnHomeClickCallBack != null) {
+                    mOnHomeClickCallBack.onBannerClick(false, null);
+                }
             } else {
-                if (position < mBannerList.size() && !TextUtils.isEmpty(mBannerList.get(position).getDestUrl())) {
+                if (position < mBannerList.size() && !TextUtils.isEmpty(destUrl)) {
                     Bundle bundle = new Bundle();
 
                     // 拼接参数用？还是&的区分
-                    if (mBannerList.get(position).getDestUrl().contains("?")) {
-                        bundle.putString("url", mBannerList.get(position).getDestUrl() + "&token="
+                    if (destUrl.contains("?")) {
+                        bundle.putString("url", destUrl + "&token="
                                 + SPUtil.getInstance().getString("token") + "&userId="
-                                + AppSpDataUtil.getInstance().getUserBean().getUserId() + "&isLogin=1");
+                                + userId + "&isLogin=1");
                     } else {
-                        bundle.putString("url", mBannerList.get(position).getDestUrl() + "?token="
+                        bundle.putString("url", destUrl + "?token="
                                 + SPUtil.getInstance().getString("token") + "&userId="
-                                + AppSpDataUtil.getInstance().getUserBean().getUserId() + "&isLogin=1");
+                                + userId + "&isLogin=1");
                     }
 
                     bundle.putString("title", mBannerList.get(position).getAdvTxt());
                     //Tools.pushScreen(HybridOfWebview.class, bundle);
+                    if (mOnHomeClickCallBack != null) {
+                        mOnHomeClickCallBack.onBannerClick(true, bundle);
+                    }
                 }
             }
         }

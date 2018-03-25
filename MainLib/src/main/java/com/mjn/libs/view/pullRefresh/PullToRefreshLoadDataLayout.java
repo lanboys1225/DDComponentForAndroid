@@ -2,7 +2,6 @@ package com.mjn.libs.view.pullRefresh;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 
 import com.ganxin.library.LoadDataLayout;
@@ -61,11 +60,9 @@ public abstract class PullToRefreshLoadDataLayout<T extends View> extends PullTo
             }
         });
 
-        final LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT, Gravity.CENTER_HORIZONTAL);
-
         mRealRefreshableView = createRealRefreshableView(context, attrs);
-        loadDataLayout.addView(mRealRefreshableView, lp);
+        loadDataLayout.addView(mRealRefreshableView, new LayoutParams(LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT));
 
         try {
             Method build = loadDataLayout.getClass().getDeclaredMethod("build");

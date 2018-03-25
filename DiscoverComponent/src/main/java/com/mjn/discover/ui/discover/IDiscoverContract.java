@@ -16,7 +16,7 @@ public interface IDiscoverContract {
 
     }
 
-    interface IDiscoverModule extends IMainLibFragmentContract.IJzkSellerFragmentModule {
+    interface IDiscoverModule extends IMainLibFragmentContract.IMainLibFragmentModule {
 
     }
 }

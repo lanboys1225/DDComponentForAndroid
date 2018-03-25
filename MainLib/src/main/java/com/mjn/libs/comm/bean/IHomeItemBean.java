@@ -29,7 +29,7 @@ public interface IHomeItemBean {
     @Retention(RetentionPolicy.SOURCE)
     public @interface HomeBeanType {
 
-        int HOME_ITEM_TYPE_BANNER = 0;//首页广告
+        int HOME_ITEM_TYPE_BANNER = 10;//首页广告
         int HOME_ITEM_TYPE_BTN = 1;//按钮布局
         int HOME_ITEM_TYPE_PRODUCT = 2;//首页标的
         int HOME_ITEM_TYPE_BOTTOM = 3;//首页底部

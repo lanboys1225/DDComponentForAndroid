@@ -16,7 +16,7 @@ public interface IHtml5Contract {
 
     }
 
-    interface IHtml5Module extends IMainLibFragmentContract.IJzkSellerFragmentModule {
+    interface IHtml5Module extends IMainLibFragmentContract.IMainLibFragmentModule {
 
     }
 }

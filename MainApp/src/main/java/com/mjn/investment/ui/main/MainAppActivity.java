@@ -75,7 +75,7 @@ public class MainAppActivity extends MainLibActivity<IMainAppContract.IMainAppPr
 
     @Override
     protected void initViewAndData(Intent intent) {
-        setToolBar(mToolbar, "包公有财首页", false, 0);
+        setToolBar(mToolbar, "包公有财主项目", false, 0);
     }
 
     @Override

@@ -8,6 +8,8 @@ import com.mjn.libs.R;
 import com.mjn.libs.base.MainLibActivity;
 import com.mjn.libs.comm.ui.h5.fragment.Html5Fragment;
 
+import static com.mjn.libs.cons.WebViewCons.WEBVIEW_PARAMS_NAME;
+
 /**
  * @author 蓝兵
  */
@@ -15,6 +17,7 @@ public class WebViewActivity extends MainLibActivity<IWebViewContract.IWebViewPr
         implements IWebViewContract.IWebViewView {
 
     MyToolbar mToolbar;
+    private Html5Fragment mHtml5Fragment;
 
     @Override
     protected int getLayoutResId() {
@@ -33,6 +36,14 @@ public class WebViewActivity extends MainLibActivity<IWebViewContract.IWebViewPr
     protected void initViewAndData(Intent intent) {
         mToolbar = findViewById(R.id.toolbar);
         setToolBar(mToolbar, "Html5页面", true, 0);
+
+        mHtml5Fragment = (Html5Fragment) getSupportFragmentManager()
+                .findFragmentById(R.id.webView_fragment);
+        if (mHtml5Fragment != null) {
+            if (intent != null) {
+                mHtml5Fragment.setWebViewParams(intent.getBundleExtra(WEBVIEW_PARAMS_NAME));
+            }
+        }
     }
 
     @Override
@@ -43,11 +54,8 @@ public class WebViewActivity extends MainLibActivity<IWebViewContract.IWebViewPr
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        Html5Fragment html5Fragment = (Html5Fragment) getSupportFragmentManager()
-                .findFragmentById(R.id.webView_fragment);
-
-        if (html5Fragment != null) {
-            if (html5Fragment.onKeyDown(keyCode, event)) {
+        if (mHtml5Fragment != null) {
+            if (mHtml5Fragment.onKeyDown(keyCode, event)) {
                 return true;
             }
         }

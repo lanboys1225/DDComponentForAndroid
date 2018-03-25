@@ -1,13 +1,14 @@
 package com.mjn.home.ui.home.adapter;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.bing.lan.comm.adapter.BaseRecyclerAdapter;
 import com.bing.lan.comm.adapter.BaseViewHolder;
 import com.mjn.home.R;
-import com.mjn.libs.comm.bean.IHomeItemBean;
 import com.mjn.home.ui.home.holder.BannerHolder;
+import com.mjn.libs.comm.bean.IHomeItemBean;
 
 import static com.mjn.libs.comm.bean.IHomeItemBean.HomeBeanType.HOME_ITEM_TYPE_BANNER;
 import static com.mjn.libs.comm.bean.IHomeItemBean.HomeBeanType.HOME_ITEM_TYPE_BOTTOM;
@@ -21,6 +22,12 @@ import static com.mjn.libs.comm.bean.IHomeItemBean.HomeBeanType.HOME_ITEM_TYPE_P
  * @author 蓝兵
  */
 public class HomeRecyclerAdapter extends BaseRecyclerAdapter<IHomeItemBean> {
+
+    OnHomeClickCallBack mOnHomeClickCallBack;
+
+    public void setOnHomeClickCallBack(OnHomeClickCallBack onHomeClickCallBack) {
+        mOnHomeClickCallBack = onHomeClickCallBack;
+    }
 
     @Override
     public int getItemLayoutResId(int viewType) {
@@ -45,14 +52,16 @@ public class HomeRecyclerAdapter extends BaseRecyclerAdapter<IHomeItemBean> {
 
     @Override
     public int getItemViewType(int position) {
-        return data.get(position).getHomeBeanType();
+
+        int homeBeanType = data.get(position).getHomeBeanType();
+        return homeBeanType;
     }
 
     @Override
     public BaseViewHolder createViewHolder(View itemView, int viewType) {
         switch (viewType) {
             case HOME_ITEM_TYPE_BANNER:
-                return new BannerHolder(itemView);
+                return new BannerHolder(itemView, mOnHomeClickCallBack);
             case HOME_ITEM_TYPE_BTN:
                 return null;
             case HOME_ITEM_TYPE_PRODUCT:
@@ -89,5 +98,10 @@ public class HomeRecyclerAdapter extends BaseRecyclerAdapter<IHomeItemBean> {
 
     @Override
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+    }
+
+    public interface OnHomeClickCallBack {
+
+        void onBannerClick(boolean isToHtml5, Bundle bundle);
     }
 }

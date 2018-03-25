@@ -13,13 +13,14 @@ public class HomeAppLike implements IApplicationLike {
 
     @Override
     public void onCreate() {
-        uiRouter.registerUI("home");
+        //暂时 没有交互页面 不注册
+        //uiRouter.registerUI("home");
         router.addService(HomeService.class.getSimpleName(), new HomeServiceImpl());
     }
 
     @Override
     public void onStop() {
-        uiRouter.unregisterUI("home");
+        //uiRouter.unregisterUI("home");
         router.removeService(HomeService.class.getSimpleName());
     }
 }

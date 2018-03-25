@@ -1,6 +1,7 @@
 package com.mjn.home.ui.home;
 
 import com.mjn.libs.base.IMainLibFragmentContract;
+import com.mjn.libs.comm.bean.Home;
 
 /**
  * @author 蓝兵
@@ -9,7 +10,7 @@ public interface IHomeContract {
 
     interface IHomeView extends IMainLibFragmentContract.IMainLibFragmentView<IHomePresenter> {
 
-        void onUpdateSuccess();
+        void onUpdateSuccess(Home home);
     }
 
     interface IHomePresenter extends
@@ -18,7 +19,7 @@ public interface IHomeContract {
         void updateHome(String userId);
     }
 
-    interface IHomeModule extends IMainLibFragmentContract.IJzkSellerFragmentModule {
+    interface IHomeModule extends IMainLibFragmentContract.IMainLibFragmentModule {
 
     }
 }

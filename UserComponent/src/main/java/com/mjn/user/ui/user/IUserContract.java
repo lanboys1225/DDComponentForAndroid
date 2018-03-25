@@ -16,7 +16,7 @@ public interface IUserContract {
 
     }
 
-    interface IUserModule extends IMainLibFragmentContract.IJzkSellerFragmentModule {
+    interface IUserModule extends IMainLibFragmentContract.IMainLibFragmentModule {
 
     }
 }

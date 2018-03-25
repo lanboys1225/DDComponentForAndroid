@@ -1,10 +1,10 @@
 package com.mjn.home.ui.home;
 
 import com.bing.lan.comm.rx.OnDataChangerListener;
-import com.mjn.libs.comm.bean.Home;
 import com.mjn.libs.api.ApiManager;
 import com.mjn.libs.api.ResponseResult;
 import com.mjn.libs.base.MainLibFragmentModule;
+import com.mjn.libs.comm.bean.Home;
 
 import java.util.HashMap;
 import java.util.Map;

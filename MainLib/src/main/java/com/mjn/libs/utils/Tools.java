@@ -615,16 +615,20 @@ public class Tools {
     private static String deviceId;
 
     public static String getDeviceId() {
-        if (TextUtils.isEmpty(deviceId)) {
-            String imei = getIMEI();
-            if (!TextUtils.isEmpty(imei)) {
-                deviceId = md5Encrypt(imei);
-            } else {
-                String androidId = getAndroidId();
-                if (!TextUtils.isEmpty(androidId)) {
-                    deviceId = md5Encrypt(androidId);
+        try {
+            if (TextUtils.isEmpty(deviceId)) {
+                String imei = getIMEI();
+                if (!TextUtils.isEmpty(imei)) {
+                    deviceId = md5Encrypt(imei);
+                } else {
+                    String androidId = getAndroidId();
+                    if (!TextUtils.isEmpty(androidId)) {
+                        deviceId = md5Encrypt(androidId);
+                    }
                 }
             }
+        } catch (Exception e) {
+            deviceId = "Unknown";
         }
         return deviceId;
     }

@@ -10,7 +10,6 @@ import com.mjn.libs.db.DataSaveManager;
 import com.mjn.libs.utils.AppConfig;
 import com.mjn.libs.utils.Tools;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +25,7 @@ public abstract class MainLibActivityModule extends BaseActivityModule
     }
 
     protected static final LogUtil log1 = LogUtil.getLogUtil(MainLibActivityModule.class, LogUtil.LOG_VERBOSE);
+
     public static Map<String, String> handlerRequestParams(Map<String, String> params) {
         Map<String, String> signParams = new HashMap<>();
         signParams.putAll(params);
@@ -41,7 +41,7 @@ public abstract class MainLibActivityModule extends BaseActivityModule
             // 签名后的参数
             return getSignParams(signParams, timestamp);
         } catch (Exception e) {
-            log1.e("handlerRequestParams(): 加密错误 " + e );
+            log1.e("handlerRequestParams(): 加密错误 " + e);
         }
         return new HashMap<>();
     }
@@ -56,18 +56,19 @@ public abstract class MainLibActivityModule extends BaseActivityModule
     public static Map<String, String> getSignParams(Map<String, String> params, long timestamp) {
         Map<String, String> signParams = new HashMap<String, String>();
         signParams.putAll(params);
-        signParams.put(AppConfig.KEY_TIMESTAMP_STRING, String.valueOf(timestamp));
-        signParams.put(AppConfig.KEY_CHANNEL_ID, Tools.getAppChannel());
-        signParams.put(AppConfig.KEY_VERSION, Tools.getAppVersion());
-        signParams.put(AppConfig.KEY_DEVICE_TYPE, AppConfig.DEVICE_TYPE);
-        signParams.put(AppConfig.KEY_IP, AppConfig.IP);
-        signParams.put(AppConfig.KEY_LATITUDE, AppConfig.LATITUDE);
-        signParams.put(AppConfig.KEY_LONGITUDE, AppConfig.LONGITUDE);
-        signParams.put(AppConfig.KEY_DEVICE_ID, Tools.getDeviceId());
         try {
+            signParams.put(AppConfig.KEY_TIMESTAMP_STRING, String.valueOf(timestamp));
+            signParams.put(AppConfig.KEY_CHANNEL_ID, Tools.getAppChannel());
+            signParams.put(AppConfig.KEY_VERSION, Tools.getAppVersion());
+            signParams.put(AppConfig.KEY_DEVICE_TYPE, AppConfig.DEVICE_TYPE);
+            signParams.put(AppConfig.KEY_IP, AppConfig.IP);
+            signParams.put(AppConfig.KEY_LATITUDE, AppConfig.LATITUDE);
+            signParams.put(AppConfig.KEY_LONGITUDE, AppConfig.LONGITUDE);
+            signParams.put(AppConfig.KEY_DEVICE_ID, Tools.getDeviceId());
+
             signParams.put(AppConfig.KEY_SIGN, Tools.getSign(signParams, "21b35fa480505dbae4a50668182e6008"));
             Log.e("md5 sign = ", Tools.getSign(signParams, "21b35fa480505dbae4a50668182e6008"));
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return signParams;

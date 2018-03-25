@@ -10,12 +10,12 @@ public interface IMainLibFragmentContract {
     }
 
     interface IMainLibFragmentPresenter<T extends IMainLibFragmentView,
-            M extends IJzkSellerFragmentModule>
+            M extends IMainLibFragmentModule>
             extends IBaseFragmentContract.IBaseFragmentPresenter<T, M> {
 
     }
 
-    interface IJzkSellerFragmentModule extends IBaseFragmentContract.IBaseFragmentModule {
+    interface IMainLibFragmentModule extends IBaseFragmentContract.IBaseFragmentModule {
 
     }
 }

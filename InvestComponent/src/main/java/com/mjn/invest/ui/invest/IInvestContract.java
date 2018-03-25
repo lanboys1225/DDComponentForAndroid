@@ -16,7 +16,7 @@ public interface IInvestContract {
 
     }
 
-    interface IInvestModule extends IMainLibFragmentContract.IJzkSellerFragmentModule {
+    interface IInvestModule extends IMainLibFragmentContract.IMainLibFragmentModule {
 
     }
 }

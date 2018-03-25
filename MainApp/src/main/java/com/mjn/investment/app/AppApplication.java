@@ -18,6 +18,6 @@ public class AppApplication extends BaseApplication {
 
     @Override
     protected boolean getLogDebug() {
-        return false;
+        return true;
     }
 }
