@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by Administrator on 2017/10/16.
  */
 
-public class Adv implements Serializable {
+public class Adv implements Serializable, IHomeItemBean {
 
     /**
      * advId : 2
@@ -15,6 +15,17 @@ public class Adv implements Serializable {
      * destUrl : http://59.110.171.181/activity/register_achieve_money
      * needLogin : 0
      */
+    private int homeBeanType;
+
+    @Override
+    public void setHomeBeanType(@HomeBeanType int homeBeanType) {
+        this.homeBeanType = homeBeanType;
+    }
+
+    @Override
+    public int getHomeBeanType() {
+        return homeBeanType;
+    }
 
     private String advId;
     private String advTxt;

@@ -9,8 +9,4 @@ public class DiscoverApplication extends BaseApplication {
         return true;
     }
 
-    @Override
-    protected boolean getLogDebug() {
-        return true;
-    }
 }

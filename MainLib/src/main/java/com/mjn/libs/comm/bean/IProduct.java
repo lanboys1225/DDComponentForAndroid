@@ -6,7 +6,8 @@ import java.io.Serializable;
  * Created by Administrator on 2017/10/16.
  */
 
-public class IProduct implements Serializable {
+public class IProduct implements Serializable, IHomeItemBean {
+
     private Integer productId;
     private Integer categoryId;
     private String title;
@@ -54,7 +55,7 @@ public class IProduct implements Serializable {
     }
 
     public void setTitle(String title) {
-        if(title != null) {
+        if (title != null) {
             this.title = title;
         }
     }
@@ -96,7 +97,7 @@ public class IProduct implements Serializable {
     }
 
     public void setFinancialPeriod(String financialPeriod) {
-        if(financialPeriod != null) {
+        if (financialPeriod != null) {
             this.financialPeriod = financialPeriod;
         }
     }
@@ -114,7 +115,7 @@ public class IProduct implements Serializable {
     }
 
     public void setStatus(String status) {
-        if(status != null) {
+        if (status != null) {
             this.status = status;
         }
     }
@@ -124,7 +125,7 @@ public class IProduct implements Serializable {
     }
 
     public void setJoinDate(String joinDate) {
-        if(joinDate != null) {
+        if (joinDate != null) {
             this.joinDate = joinDate;
         }
     }
@@ -158,7 +159,7 @@ public class IProduct implements Serializable {
     }
 
     public void setIncomeMethod(String incomeMethod) {
-        if(incomeMethod != null) {
+        if (incomeMethod != null) {
             this.incomeMethod = incomeMethod;
         }
     }
@@ -176,7 +177,7 @@ public class IProduct implements Serializable {
     }
 
     public void setStartDate(String startDate) {
-        if(startDate != null) {
+        if (startDate != null) {
             this.startDate = startDate;
         }
     }
@@ -186,7 +187,7 @@ public class IProduct implements Serializable {
     }
 
     public void setDueDate(String dueDate) {
-        if(dueDate != null) {
+        if (dueDate != null) {
             this.dueDate = dueDate;
         }
     }
@@ -196,7 +197,7 @@ public class IProduct implements Serializable {
     }
 
     public void setRiskLevel(String riskLevel) {
-        if(riskLevel != null) {
+        if (riskLevel != null) {
             this.riskLevel = riskLevel;
         }
     }
@@ -246,7 +247,7 @@ public class IProduct implements Serializable {
     }
 
     public void setIsUseCoupon(String isUseCoupon) {
-        if(isUseCoupon != null) {
+        if (isUseCoupon != null) {
             this.isUseCoupon = isUseCoupon;
         }
     }
@@ -256,13 +257,25 @@ public class IProduct implements Serializable {
     }
 
     public void setIntroduceUrl(String introduceUrl) {
-        if(introduceUrl != null) {
+        if (introduceUrl != null) {
             this.introduceUrl = introduceUrl;
         }
     }
 
     public String getIntroduceUrl() {
         return this.introduceUrl;
+    }
+
+    private int homeBeanType;
+
+    @Override
+    public void setHomeBeanType(@HomeBeanType int homeBeanType) {
+        this.homeBeanType = homeBeanType;
+    }
+
+    @Override
+    public int getHomeBeanType() {
+        return homeBeanType;
     }
 }
 

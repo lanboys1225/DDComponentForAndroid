@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.bing.lan.comm.mvp.activity.BaseActivityModule;
 import com.bing.lan.comm.rx.OnDataChangerListener;
+import com.bing.lan.comm.utils.LogUtil;
 import com.mjn.libs.db.DataSaveManager;
 import com.mjn.libs.utils.AppConfig;
 import com.mjn.libs.utils.Tools;
@@ -24,7 +25,8 @@ public abstract class MainLibActivityModule extends BaseActivityModule
     public void loadData(int action, OnDataChangerListener listener, Object... parameter) {
     }
 
-    public Map<String, String> handlerRequestParams(Map<String, String> params) {
+    protected static final LogUtil log1 = LogUtil.getLogUtil(MainLibActivityModule.class, LogUtil.LOG_VERBOSE);
+    public static Map<String, String> handlerRequestParams(Map<String, String> params) {
         Map<String, String> signParams = new HashMap<>();
         signParams.putAll(params);
         try {
@@ -39,8 +41,7 @@ public abstract class MainLibActivityModule extends BaseActivityModule
             // 签名后的参数
             return getSignParams(signParams, timestamp);
         } catch (Exception e) {
-
-            log.e("handlerRequestParams(): 加密错误 " + e );
+            log1.e("handlerRequestParams(): 加密错误 " + e );
         }
         return new HashMap<>();
     }

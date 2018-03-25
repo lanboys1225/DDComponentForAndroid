@@ -9,8 +9,5 @@ public class HomeApplication extends BaseApplication {
         return true;
     }
 
-    @Override
-    protected boolean getLogDebug() {
-        return true;
-    }
+
 }

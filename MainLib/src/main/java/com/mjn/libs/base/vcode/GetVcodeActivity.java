@@ -9,7 +9,7 @@ import com.mjn.libs.base.MainLibActivity;
 
 import java.util.List;
 
-import static com.bing.lan.comm.cons.BaseCons.REQUEST_CODE_PERMISSION_READ_SMS;
+import static com.mjn.libs.cons.PermissionRequestCodeCons.REQUEST_CODE_PERMISSION_READ_SMS;
 
 /**
  * @author 蓝兵
@@ -81,7 +81,7 @@ public abstract class GetVcodeActivity<T extends IGetVcodeContract.IGetVcodePres
         //AppUtil.postTaskSafeDelay(new Runnable() {
         //    @Override
         //    public void run() {
-        requestPermissions(REQUEST_CODE_PERMISSION_READ_SMS, R.array.read_sms_runtime_permissions);
+        requestPermissions(REQUEST_CODE_PERMISSION_READ_SMS, com.bing.lan.comm.R.array.read_sms_runtime_permissions);
         //    }
         //}, 1500);
     }

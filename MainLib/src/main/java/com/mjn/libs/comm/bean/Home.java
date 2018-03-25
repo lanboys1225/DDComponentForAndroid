@@ -1,6 +1,5 @@
 package com.mjn.libs.comm.bean;
 
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -57,12 +56,25 @@ import java.util.List;
  * }
  */
 
-public class Home implements Serializable {
+public class Home implements Serializable, IHomeItemBean {
+
     private List<Adv> bannerList;
     private List<Adv> bottomList;
     private List<IProduct> preferenceList;
     private List<IProduct> firstUserList;
     private String platformDescUrl;
+
+    @Override
+    public String toString() {
+        return "Home{" +
+                "bannerList=" + bannerList +
+                ", bottomList=" + bottomList +
+                ", preferenceList=" + preferenceList +
+                ", firstUserList=" + firstUserList +
+                ", platformDescUrl='" + platformDescUrl + '\'' +
+                ", homeBeanType=" + homeBeanType +
+                '}';
+    }
 
     public Home() {
     }
@@ -105,6 +117,18 @@ public class Home implements Serializable {
 
     public List<IProduct> getFirstUserList() {
         return this.firstUserList;
+    }
+
+    private int homeBeanType;
+
+    @Override
+    public void setHomeBeanType(@HomeBeanType int homeBeanType) {
+        this.homeBeanType = homeBeanType;
+    }
+
+    @Override
+    public int getHomeBeanType() {
+        return homeBeanType;
     }
 }
 

@@ -1,6 +1,7 @@
 package com.mjn.libs.api;
 
 import com.bing.lan.comm.api.HttpResult;
+import com.mjn.libs.comm.bean.Home;
 import com.mjn.libs.comm.bean.ISmsCode;
 import com.mjn.libs.comm.bean.IUser;
 import com.mjn.libs.comm.bean.UserBean;
@@ -11,7 +12,9 @@ import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 
 public interface ApiService {
 
@@ -42,6 +45,12 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("user/iregisteruser/register")
     Observable<ResponseResult<UserBean>> register(@FieldMap Map<String, String> map);
+
+    /**
+     * 注册
+     */
+    @GET("index/home")
+    Observable<ResponseResult<Home>> home(@QueryMap Map<String, String> map);
 
     /**
      * 找回密码

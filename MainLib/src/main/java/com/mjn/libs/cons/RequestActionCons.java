@@ -12,4 +12,6 @@ public class RequestActionCons implements IConstants {
 
     public static final int ACTION_LOGIN = 1000;
     public static final int ACTION_REGISTER = 1001;
+
+    public static final int ACTION_UPDATE_HOME = 1002;
 }
